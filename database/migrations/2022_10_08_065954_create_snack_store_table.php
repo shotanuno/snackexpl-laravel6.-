@@ -11,7 +11,6 @@ class CreateSnackStoreTable extends Migration
         Schema::create('snack_store', function (Blueprint $table) {
             $table->integer('snack_id')->unsigned();
             $table->integer('store_id')->unsigned();
-            /* この次のコードが必要か分からない。 */
             $table->primary(['snack_id', 'store_id']);
         });
     }

@@ -11,7 +11,6 @@ class CreateCommentUserTable extends Migration
         Schema::create('comment_user', function (Blueprint $table) {
             $table->integer('comment_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            /* この次のコードが必要か分からない。 */
             $table->primary(['comment_id', 'user_id']);
         });
     }
