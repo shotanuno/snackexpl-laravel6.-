@@ -35,6 +35,13 @@ class SnackController extends Controller
         return redirect('/snacks/' . $snack->id);
     }
     
+    public function store(SnackRequest $request, Snack $snack)
+    {
+        $input_snack = $request['snack'];
+        $snack->fill($input_snack)->save();
+
+        return redirect('/snacks/' . $snack->id);
+    }
 }
 
 ?>
