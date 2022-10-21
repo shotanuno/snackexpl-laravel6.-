@@ -9,6 +9,8 @@ class SnackController extends Controller
 {
     public function index(Snack $snack)
     {
-        return $snack->get();
+        return view('snacks/index')->with(['snacks' => $snack->get()]);
     }
 }
+
+?>

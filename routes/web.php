@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/snacks', 'SnackController@index')
+Route::get('/', 'SnackController@index');
 
 ?>
