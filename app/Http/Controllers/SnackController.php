@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Snack;
-use Illuminate\Http\Request;
+use App\Http\Requests\SnackRequest;
 
 class SnackController extends Controller
 {
@@ -14,12 +14,25 @@ class SnackController extends Controller
     
     public function detail(Snack $snack)
     {
-        return view('snacks/show')->with(['snack' => $snack]);
+        return view('snacks/detail')->with(['snack' => $snack]);
     }
     
     public function create()
     {
         return view('snacks/create');
+    }
+    
+    public function edit(Snack $snack)
+    {
+        return view('snacks/edit')->with(['snack' => $snack]);
+    }
+    
+    public function update(SnackRequest $request, Snack $snack)
+    {
+        $input_snack = $request['snack'];
+        $snack->fill($input_snack)->save();
+
+        return redirect('/snacks/' . $snack->id);
     }
     
 }

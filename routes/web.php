@@ -14,6 +14,9 @@
 Route::get('/', 'SnackController@index');
 /* createのルーティングは上側 */
 Route::get('/snacks/create', 'SnackController@create');
+Route::get('/snacks/{snack}/edit', 'SnackController@edit');
 Route::get('/snacks/{snack}', 'SnackController@detail');
+Route::put('/snacks/{snack}', 'SnackController@update');
+
 
 ?>

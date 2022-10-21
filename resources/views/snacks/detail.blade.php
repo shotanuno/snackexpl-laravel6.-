@@ -20,6 +20,7 @@
                 <p class='rating_average'>{{ $snack->rating_average }}</p>    
             </div>
         </div>
+        <p class="edit">[<a href="/snacks/{{ $snack->id }}/edit">編集</a>]</p>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
