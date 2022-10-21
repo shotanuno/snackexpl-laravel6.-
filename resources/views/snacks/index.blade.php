@@ -11,9 +11,10 @@
         <div class='snacks'>
             @foreach ($snacks as $snack)
                 <div class='snack'>
-                    <h2 class='name'>{{ $snack->name }}</h2>
+                    <h2 class='name'>
+                        <a href="/snacks/{{ $snack->id }}">{{ $snack->name }}</a>
+                    </h2>
                     <p class='overview'>{{ $snack->overview }}</p>
-                    <p class='rating_average'>{{ $snack->rating_average }}</p>
                 </div>
             @endforeach
         </div>

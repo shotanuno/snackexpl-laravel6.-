@@ -11,6 +11,11 @@ class SnackController extends Controller
     {
         return view('snacks/index')->with(['snacks' => $snack->getPaginateByLimit()]);
     }
+    
+    public function show(Snack $snack)
+    {
+        return view('snacks/show')->with(['snack' => $snack]);
+    }
 }
 
 ?>
