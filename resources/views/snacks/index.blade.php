@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
+        <a href='/snacks/{{$random->id }}'>random jump</a>
         <div class='snacks'>
             @foreach ($snacks as $snack)
                 <div class='snack'>

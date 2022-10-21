@@ -9,7 +9,11 @@ class SnackController extends Controller
 {
     public function index(Snack $snack)
     {
-        return view('snacks/index')->with(['snacks' => $snack->getPaginateByLimit()]);
+        
+        return view('snacks/index')->with([
+            'snacks' => $snack->getPaginateByLimit(),
+            'random' => Snack::inRandomOrder()->first()
+            ]);
     }
     
     public function detail(Snack $snack)
@@ -48,6 +52,8 @@ class SnackController extends Controller
         $snack->delete();
         return redirect('/');
     }
+    
+    
 }
 
 ?>
