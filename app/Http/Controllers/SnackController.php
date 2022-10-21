@@ -42,6 +42,12 @@ class SnackController extends Controller
 
         return redirect('/snacks/' . $snack->id);
     }
+    
+    public function delete(Snack $snack)
+    {
+        $snack->delete();
+        return redirect('/');
+    }
 }
 
 ?>

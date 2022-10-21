@@ -15,12 +15,26 @@
                         <a href="/snacks/{{ $snack->id }}">{{ $snack->name }}</a>
                     </h2>
                     <p class='overview'>{{ $snack->overview }}</p>
+                    <form action="/snacks/{{ $snack->id }}" id="form_{{ $snack->id }}" method="post" style="display:inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit", onclick="return deleteSnack()">delete</button> 
+                    </form>
                 </div>
             @endforeach
         </div>
         <div class='paginate'>
             {{ $snacks->links() }}
         </div>
-        [<a href='/snacks/create'>お菓子の追加</a>]
+        <a href='/snacks/create'>お菓子の追加</a>
+        <script>
+            function deleteSnack() {
+                "use strict"
+            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                return true;
+            }
+            return false;
+        }
+        </script>
     </body>
 </html>
