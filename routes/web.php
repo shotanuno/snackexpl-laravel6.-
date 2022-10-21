@@ -20,4 +20,6 @@ Route::put('/snacks/{snack}', 'SnackController@update');
 Route::post('/snacks', 'SnackController@store');
 Route::delete('/snacks/{snack}', 'SnackController@delete');
 
+Auth::routes();
+
 ?>
