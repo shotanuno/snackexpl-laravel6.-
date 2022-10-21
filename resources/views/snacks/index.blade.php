@@ -13,8 +13,12 @@
                 <div class='snack'>
                     <h2 class='name'>{{ $snack->name }}</h2>
                     <p class='overview'>{{ $snack->overview }}</p>
+                    <p class='rating_average'>{{ $snack->rating_average }}</p>
                 </div>
             @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $snacks->links() }}
         </div>
     </body>
 </html>

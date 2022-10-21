@@ -9,7 +9,7 @@ class SnackController extends Controller
 {
     public function index(Snack $snack)
     {
-        return view('snacks/index')->with(['snacks' => $snack->get()]);
+        return view('snacks/index')->with(['snacks' => $snack->getPaginateByLimit()]);
     }
 }
 
