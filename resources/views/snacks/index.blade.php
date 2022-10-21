@@ -21,5 +21,6 @@
         <div class='paginate'>
             {{ $snacks->links() }}
         </div>
+        [<a href='/snacks/create'>お菓子の追加</a>]
     </body>
 </html>

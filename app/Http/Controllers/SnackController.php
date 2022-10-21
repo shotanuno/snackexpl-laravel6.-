@@ -16,6 +16,12 @@ class SnackController extends Controller
     {
         return view('snacks/show')->with(['snack' => $snack]);
     }
+    
+    public function create()
+    {
+        return view('snacks/create');
+    }
+    
 }
 
 ?>
