@@ -12,7 +12,7 @@ class CreateSnacksTable extends Migration
             $table->increments('id');
             $table->string('name', 30);
             $table->string('overview', 150);
-            $table->float('rating_average', 1, 1);
+            $table->float('rating_average', 2, 1)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
