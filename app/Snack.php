@@ -12,7 +12,8 @@ class Snack extends Model
     protected $fillable =[
         'name',
         'overview',
-        'rating_average'
+        'rating_average',
+        'snack_id'
         ];
     
     public function getPaginateByLimit(int $limit_count = 10)

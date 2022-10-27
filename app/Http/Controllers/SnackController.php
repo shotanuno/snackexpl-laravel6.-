@@ -35,7 +35,7 @@ class SnackController extends Controller
     {
         $input_snack = $request['snack'];
         $snack->fill($input_snack)->save();
-
+        
         return redirect('/snacks/' . $snack->id);
     }
     
