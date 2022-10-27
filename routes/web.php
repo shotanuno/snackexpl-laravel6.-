@@ -11,10 +11,10 @@
 |
 */
 Route::group(['middleware' => ['auth']], function(){
-/* 15~22行までお菓子のCRUD */
 Route::get('/', 'SnackController@index');
-/* createのルーティングは上側 */
 Route::get('/snacks/create', 'SnackController@create');
+Route::get('/comments/create', 'CommentController@create');
+/* createのルーティングは上側 */
 Route::get('/snacks/{snack}/edit', 'SnackController@edit');
 Route::get('/snacks/{snack}', 'SnackController@detail');
 Route::put('/snacks/{snack}', 'SnackController@update');

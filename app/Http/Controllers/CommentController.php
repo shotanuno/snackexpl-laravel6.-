@@ -22,7 +22,10 @@ class CommentController extends Controller
     
     public function create(Comment $comment)
     {
-
+        return view("comments/create")->with([
+            'comments' => $comment->get(),
+            'snacks' => Snack::get()
+            ]);
     }
 
     
