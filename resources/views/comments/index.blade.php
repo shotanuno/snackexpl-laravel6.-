@@ -12,12 +12,14 @@
     </head>
     <body>
         <h1>Blog name</h1>
+        <a href='/snacks/{{$random->id }}'>random jump</a>
         <div class='cooments'>
             @foreach ($comments as $comment)
                 <div class='comment'>
                     <h2 class='title'>
                         {{ $comment->title }}
                     </h2>
+                    
                     <p class='body'>{{ $comment->body }}</p>
                 </div>
             @endforeach

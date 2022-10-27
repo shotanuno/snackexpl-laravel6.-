@@ -13,7 +13,8 @@ class CommentController extends Controller
     {
         return view('comments/index')->with([
         $i = new Comment(),
-        'comments' => $i->getPaginateByLimit()
+        'comments' => $i->getPaginateByLimit(),
+        'random' => Snack::inRandomOrder()->first()
         ]);
         
     }
