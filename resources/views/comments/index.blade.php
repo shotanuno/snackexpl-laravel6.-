@@ -17,7 +17,7 @@
             @foreach ($comments as $comment)
                 <div class='comment'>
                     <h2 class='title'>
-                        {{ $comment->title }}
+                        <a href='/comments/{{ $comment->id }}'>{{ $comment->title }}</a>
                     </h2>
                     
                     <p class='body'>{{ $comment->body }}</p>
