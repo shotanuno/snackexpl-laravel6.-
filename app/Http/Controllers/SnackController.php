@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Snack;
+use App\Comment;
 use App\Http\Requests\SnackRequest;
 
 class SnackController extends Controller
@@ -18,7 +19,10 @@ class SnackController extends Controller
     
     public function detail(Snack $snack)
     {
-        return view('snacks/detail')->with(['snack' => $snack]);
+        return view('snacks/detail')->with([
+            'snack' => $snack
+            
+            ]);
     }
     
     public function create()

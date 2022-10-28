@@ -18,13 +18,16 @@
         </h1>
         <div class="content">
             <div class="content__snack">
-                <h3>お菓子の詳細</h3>
+                <h2>お菓子の詳細</h2>
                 <p>{{ $snack->overview }}</p>
-                <h3>評価</h3>
+                <h2>評価</h2>
                 <p class='rating_average'>{{ $snack->rating_average }}</p>    
             </div>
         </div>
-        <p class="comment_create">[<a href='/comments/create'>このお菓子にコメントする</a>]</p>
+        <p class="comment_create">[<a href='/comments/{{ $snack->id }}/create'>このお菓子にコメントする</a>]</p>
+        <h3 class="comment">このお菓子への投稿</h3>
+        
+        
         <p class="edit">[<a href="/snacks/{{ $snack->id }}/edit">編集</a>]</p>
         <div class="footer">
             <a href="/">戻る</a>

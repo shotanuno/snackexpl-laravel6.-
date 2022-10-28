@@ -21,11 +21,11 @@ class CommentController extends Controller
     }
 
     
-    public function create(Comment $comment)
+    public function create(Snack $snack)
     {
-        return view("comments/create")->with([
-            'comments' => Comment::get(),
-            'snacks' => Snack::get()
+        return view("comments.create")->with([
+            'snack' => $snack,
+            'comment' => Comment::get()
         ]);
     }
 
@@ -36,9 +36,16 @@ class CommentController extends Controller
         ]);
     }
     
-    public function store(Request $request)
+    public function store(CommentRequest $request, Snack $snack)
     {
-        //
+        $comment = new Comment();
+        $input_comment = $request['comment'];
+        $comment->fill($input_comment);
+        $comment->snack_id = $snack->id;
+        $comment->save();
+        
+        return redirect('/comments/' . $comment->id);
+        
     }
 
     

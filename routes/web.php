@@ -13,7 +13,7 @@
 Route::group(['middleware' => ['auth']], function(){
 Route::get('/', 'SnackController@index');
 Route::get('/snacks/create', 'SnackController@create');
-Route::get('/comments/create', 'CommentController@create');
+Route::get('/comments/{snack}/create', 'CommentController@create');
 /* createのルーティングは上側 */
 Route::get('/snacks/{snack}/edit', 'SnackController@edit');
 Route::get('/snacks/{snack}', 'SnackController@detail');
@@ -23,7 +23,7 @@ Route::delete('/snacks/{snack}', 'SnackController@delete');
 
 Route::get('/comments', 'CommentController@index');
 Route::get('/comments/{comment}', 'CommentController@detail');
-
+Route::post('/comments/{snack}', 'CommentController@store');
 
 });
 
