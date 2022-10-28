@@ -14,6 +14,7 @@ Route::group(['middleware' => ['auth']], function(){
 Route::get('/', 'SnackController@index');
 Route::get('/snacks/create', 'SnackController@create');
 Route::get('/comments/{snack}/create', 'CommentController@create');
+Route::get('/snacks/random', 'SnackController@random');
 /* createのルーティングは上側 */
 Route::get('/snacks/{snack}/edit', 'SnackController@edit');
 Route::get('/snacks/{snack}', 'SnackController@detail');

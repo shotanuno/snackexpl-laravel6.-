@@ -12,8 +12,13 @@ class SnackController extends Controller
     {
         
         return view('snacks/index')->with([
-            'snacks' => $snack->getPaginateByLimit(),
-            'random' => Snack::inRandomOrder()->first()
+            'snacks' => $snack->getPaginateByLimit()
+            ]);
+    }
+    
+    public function random(){
+        return view('snacks/detail')->with([
+            'snack' => Snack::inRandomOrder()->first()
             ]);
     }
     

@@ -36,12 +36,12 @@ class CommentController extends Controller
         ]);
     }
     
-    public function store(CommentRequest $request, Snack $snack)
+    public function store(CommentRequest $request, Snack $snack, Comment $comment)
     {
-        $comment = new Comment();
         $input_comment = $request['comment'];
         $comment->fill($input_comment);
         $comment->snack_id = $snack->id;
+        $comment->user_id = auth()->id();
         $comment->save();
         
         return redirect('/comments/' . $comment->id);

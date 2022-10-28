@@ -9,7 +9,8 @@ class Comment extends Model
     protected $fillable = [
         'title',
         'body',
-        'rating'
+        'rating',
+        'user_id'
     ];
     
     public function getPaginateByLimit(int $limit_count = 10)
