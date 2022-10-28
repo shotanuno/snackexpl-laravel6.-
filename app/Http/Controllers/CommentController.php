@@ -9,12 +9,13 @@ use App\Http\Requests\CommentRequest;
 class CommentController extends Controller
 {
     
-    public function index(Comment $comment)
+    public function index()
     {
-        return view('comments/index')->with([
-        $i = new Comment(),
-        'comments' => $i->getPaginateByLimit(),
-        'random' => Snack::inRandomOrder()->first()
+        $random = Snack::inRandomOrder()->first();
+        return view('comments.index')->with([
+            'random' => $random,
+            $i = new Comment(),
+            'comments' => $i->getPaginateByLimit()
         ]);
         
     }
@@ -23,11 +24,17 @@ class CommentController extends Controller
     public function create(Comment $comment)
     {
         return view("comments/create")->with([
-            'comments' => $comment->get(),
+            'comments' => Comment::get(),
             'snacks' => Snack::get()
-            ]);
+        ]);
     }
 
+    public function detail(Comment $comment)
+    {
+        return view("comments.detail")->with([
+            'comment' => $comment
+        ]);
+    }
     
     public function store(Request $request)
     {
