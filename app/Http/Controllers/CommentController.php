@@ -50,13 +50,22 @@ class CommentController extends Controller
     
     public function edit(Comment $comment)
     {
-        //
+        return view('comments.edit')->with([
+            'comment' => $comment
+            
+        ]);
     }
 
 
-    public function update(Request $request, Comment $comment)
+    public function update(CommentRequest $request, Comment $comment, Snack $snack)
     {
-        //
+        $input_comment = $request['comment'];
+        $comment->fill($input_comment);
+        /* snack_idへの記載はいらない */
+        $comment->user_id = auth()->id();
+        $comment->save();
+        
+        return redirect('/comments/' . $comment->id);
     }
 
     public function delete(Snack $snack, Comment $comment)
