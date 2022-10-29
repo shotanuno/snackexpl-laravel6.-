@@ -47,13 +47,6 @@ class CommentController extends Controller
         return redirect('/comments/' . $comment->id);
         
     }
-
-    
-    public function show(Comment $comment)
-    {
-        
-    }
-
     
     public function edit(Comment $comment)
     {
@@ -66,5 +59,12 @@ class CommentController extends Controller
         //
     }
 
+    public function delete(Snack $snack, Comment $comment)
+    {
+        $comment->delete();
+        return redirect('/snacks/' . $comment->snack->id);
+        
+    }
+    
     
 }

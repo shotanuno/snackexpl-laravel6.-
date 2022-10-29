@@ -28,9 +28,23 @@
             </div>
         </div>
         <p class="edit">[<a href="/comments/{{ $comment->id }}/edit">編集</a>]</p>
+        <form action="/comments/{{ $comment->id }}" id="form_{{ $comment->id }}" method="post" style="display:inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit", onclick="return deleteComment()">delete</button> 
+        </form>
         <div class="footer">
             <a href="/comments">投稿一覧へ戻る</a>
         </div>
+        <script>
+            function deleteComment() {
+                "use strict"
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                return true;
+                }
+                return false;
+            }
+        </script>
     </body>
 </html>
 

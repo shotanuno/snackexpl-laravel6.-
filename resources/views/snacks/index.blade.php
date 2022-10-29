@@ -35,11 +35,11 @@
         <script>
             function deleteSnack() {
                 "use strict"
-            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
                 return true;
+                }
+                return false;
             }
-            return false;
-        }
         </script>
     </body>
 </html>

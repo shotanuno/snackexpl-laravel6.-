@@ -25,7 +25,7 @@ Route::delete('/snacks/{snack}', 'SnackController@delete');
 Route::get('/comments', 'CommentController@index');
 Route::get('/comments/{comment}', 'CommentController@detail');
 Route::post('/comments/{snack}', 'CommentController@store');
-
+Route::delete('comments/{comment}', 'CommentController@delete');
 });
 
 Auth::routes();
