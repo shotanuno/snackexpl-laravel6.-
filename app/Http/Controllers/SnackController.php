@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Snack;
 use App\Comment;
+use App\Image;
+use Cloudinary;
 use App\Http\Requests\SnackRequest;
 
 class SnackController extends Controller
@@ -50,11 +52,28 @@ class SnackController extends Controller
         return redirect('/snacks/' . $snack->id);
     }
     
-    public function store(SnackRequest $request, Snack $snack)
+    public function store(SnackRequest $request, Snack $snack, Image $image)
     {
         $input_snack = $request['snack'];
         $snack->fill($input_snack)->save();
-
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $image->image_path = $image_url;
+        $snack->images()->save($image);
+        /*
+        | image_idは自動採番によって割り振られるからOK.
+        | image_pathは$snackの方にデータが無いため独自に取得する必要がある.
+        |
+        | ポリモーフィックリレーションによりSnackモデルはimageメソッドを持って
+        | いるためimageable_id,imageable_typeはimageメソッドにより保存できる.
+        |
+        | 注意すべき点:Snackモデルのimageメソッドにはcreated_at,updated_atの
+        | データも含んでいるので仮にimageテーブルに上記のカラムがない場合
+        | エラーが起きる.
+        | 
+        | $snack->images()->save($image);　の意味:
+        | snackのimageメソッドを$imageに保存
+        */
+        
         return redirect('/snacks/' . $snack->id);
     }
     
