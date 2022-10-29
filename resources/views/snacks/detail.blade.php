@@ -25,8 +25,12 @@
             </div>
         </div>
         <p class="comment_create">[<a href='/comments/{{ $snack->id }}/create'>このお菓子にコメントする</a>]</p>
-        <h3 class="comment">このお菓子への投稿</h3>
-        
+        <h3 class="comment">このお菓子への投稿　最新10件</h3>
+        @foreach ($comments as $comment)
+            <div class="snack_comment">
+                <a href="/comments/{{ $comment->id }}">{{ $comment->title }}</a>
+            </div>
+        @endforeach
         
         <p class="edit">[<a href="/snacks/{{ $snack->id }}/edit">編集</a>]</p>
         <div class="footer">

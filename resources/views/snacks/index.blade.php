@@ -12,7 +12,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <a href='/snacks/random'>TEST</a>
+        <a href='/snacks/random'>Random Jump</a>
         <div class='snacks'>
             @foreach ($snacks as $snack)
                 <div class='snack'>

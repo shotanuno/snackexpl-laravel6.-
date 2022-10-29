@@ -24,9 +24,11 @@ class SnackController extends Controller
     
     public function detail(Snack $snack)
     {
+        $comment = Comment::where("snack_id", $snack->id)
+        ->orderBy("created_at", "DESC")->limit(4)->get();
         return view('snacks/detail')->with([
-            'snack' => $snack
-            
+            'snack' => $snack,
+            'comments' => $comment
             ]);
     }
     
