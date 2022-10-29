@@ -28,6 +28,7 @@ Route::get('/comments/{comment}/edit', 'CommentController@edit');
 Route::put('/comments/{comment}', 'CommentController@update');
 Route::post('/comments/{snack}', 'CommentController@store');
 Route::delete('comments/{comment}', 'CommentController@delete');
+
 });
 
 Auth::routes();

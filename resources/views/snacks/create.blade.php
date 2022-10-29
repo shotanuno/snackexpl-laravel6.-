@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>Snack Name</h1>
-        <form action="/snacks" method="POST">
+        <form action="/snacks" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="name">
                 <h2>お菓子名:</h2>
@@ -22,6 +22,9 @@
                 <textarea name="snack[overview]" placeholder="そのお菓子の詳細について記入してください"></textarea>
                 <p class="overview__error" style="color:red">{{ $errors->first('snack.overview') }}</p>
             <!-- ratig_averageについては未実装 -->
+            </div>
+            <div class='image'>
+                <input type="file" name="image">
             </div>
             <input type="submit" value="保存"/>
         </form>
