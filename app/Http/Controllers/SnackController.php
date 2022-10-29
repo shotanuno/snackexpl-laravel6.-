@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Snack;
+use App\Comment;
 use App\Http\Requests\SnackRequest;
 
 class SnackController extends Controller
@@ -11,14 +12,24 @@ class SnackController extends Controller
     {
         
         return view('snacks/index')->with([
-            'snacks' => $snack->getPaginateByLimit(),
-            'random' => Snack::inRandomOrder()->first()
+            'snacks' => $snack->getPaginateByLimit()
+            ]);
+    }
+    
+    public function random(){
+        return view('snacks/detail')->with([
+            'snack' => Snack::inRandomOrder()->first()
             ]);
     }
     
     public function detail(Snack $snack)
     {
-        return view('snacks/detail')->with(['snack' => $snack]);
+        $comment = Comment::where("snack_id", $snack->id)
+        ->orderBy("created_at", "DESC")->limit(4)->get();
+        return view('snacks/detail')->with([
+            'snack' => $snack,
+            'comments' => $comment
+            ]);
     }
     
     public function create()
@@ -35,7 +46,7 @@ class SnackController extends Controller
     {
         $input_snack = $request['snack'];
         $snack->fill($input_snack)->save();
-
+        
         return redirect('/snacks/' . $snack->id);
     }
     

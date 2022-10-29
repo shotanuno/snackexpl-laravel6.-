@@ -1,3 +1,7 @@
+@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+
+@section('content')
+{{Auth::user()->name}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -8,7 +12,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <a href='/snacks/{{$random->id }}'>random jump</a>
+        <a href='/snacks/random'>Random Jump</a>
         <div class='snacks'>
             @foreach ($snacks as $snack)
                 <div class='snack'>
@@ -31,11 +35,13 @@
         <script>
             function deleteSnack() {
                 "use strict"
-            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
                 return true;
+                }
+                return false;
             }
-            return false;
-        }
         </script>
     </body>
 </html>
+
+@endsection
