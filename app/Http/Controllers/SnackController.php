@@ -77,10 +77,11 @@ class SnackController extends Controller
         return redirect('/snacks/' . $snack->id);
     }
     
-    public function delete(Snack $snack, Image $image)
+    public function delete(Snack $snack, Image $image, Comment $comment)
     {
         $snack->delete();
         $snack->images()->delete($image);
+        $snack->comments()->delete($comment);
         return redirect('/');
     }
     
