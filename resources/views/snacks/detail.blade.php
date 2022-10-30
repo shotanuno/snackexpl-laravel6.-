@@ -16,6 +16,9 @@
         <h1 class="name">
             {{ $snack->name }}
         </h1>
+        <div class="image">
+            <img src="{{ $image->image_path }}">
+        </div>
         <div class="content">
             <div class="content__snack">
                 <h2>お菓子の詳細</h2>

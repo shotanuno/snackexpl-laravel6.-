@@ -27,10 +27,12 @@ class SnackController extends Controller
     public function detail(Snack $snack)
     {
         $comment = Comment::where("snack_id", $snack->id)
-        ->orderBy("created_at", "DESC")->limit(4)->get();
+        ->orderBy("created_at", "DESC")->limit(10)->get();
+        $image = Image::whereImageable_id($snack->id)->where('imageable_type', 'App\Snack')->first();
         return view('snacks/detail')->with([
             'snack' => $snack,
-            'comments' => $comment
+            'comments' => $comment,
+            'image' => $image
             ]);
     }
     
