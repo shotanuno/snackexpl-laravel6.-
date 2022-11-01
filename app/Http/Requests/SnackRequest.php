@@ -11,6 +11,7 @@ class SnackRequest extends FormRequest
         return [
             'snack.name' => 'required|string|max:100',
             'snack.overview' => 'required|string|max:4000',
+            'image' => 'required'
         ];
     }
 }

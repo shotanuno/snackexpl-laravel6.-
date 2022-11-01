@@ -6,6 +6,7 @@ use App\Snack;
 use App\Comment;
 use App\Image;
 use Cloudinary;
+use Illuminate\Http\Request;
 use App\Http\Requests\SnackRequest;
 
 class SnackController extends Controller
@@ -28,11 +29,11 @@ class SnackController extends Controller
     {
         $comment = Comment::where("snack_id", $snack->id)
         ->orderBy("created_at", "DESC")->limit(10)->get();
-        $image = Image::whereImageable_id($snack->id)->where('imageable_type', 'App\Snack')->first();
+        $image = Image::whereImageable_id($snack->id)->where('imageable_type', 'App\Snack')->get();
         return view('snacks/detail')->with([
             'snack' => $snack,
             'comments' => $comment,
-            'image' => $image
+            'images' => $image
             ]);
     }
     
@@ -50,6 +51,15 @@ class SnackController extends Controller
     {
         $input_snack = $request['snack'];
         $snack->fill($input_snack)->save();
+        
+        return redirect('/snacks/' . $snack->id);
+    }
+    
+    public function add(Request $request, Snack $snack, Image $image)
+    {
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $image->image_path = $image_url;
+        $snack->images()->save($image);
         
         return redirect('/snacks/' . $snack->id);
     }

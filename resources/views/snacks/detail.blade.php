@@ -17,7 +17,17 @@
             {{ $snack->name }}
         </h1>
         <div class="image">
+        @foreach($images as $image)
             <img src="{{ $image->image_path }}">
+        @endforeach
+            <h2>お菓子の画像を追加する</h2>
+            <form action="/snacks/{{ $snack->id }}" method="POST" enctype="multipart/form-data">
+                @csrf    
+                <div class='image'>
+                    <input type="file" name="image"/>
+                </div>
+                <input type="submit" value="保存"/>
+            </form>
         </div>
         <div class="content">
             <div class="content__snack">
@@ -27,14 +37,13 @@
                 <p class='rating_average'>{{ $snack->rating_average }}</p>    
             </div>
         </div>
-        <p class="comment_create">[<a href='/comments/{{ $snack->id }}/create'>このお菓子にコメントする</a>]</p>
         <h3 class="comment">このお菓子への投稿　最新10件</h3>
         @foreach ($comments as $comment)
             <div class="snack_comment">
                 <a href="/comments/{{ $comment->id }}">{{ $comment->title }}</a>
             </div>
         @endforeach
-        
+        <p class="comment_create">[<a href='/comments/{{ $snack->id }}/create'>このお菓子にコメントする</a>]</p>
         <p class="edit">[<a href="/snacks/{{ $snack->id }}/edit">編集</a>]</p>
         <div class="footer">
             <a href="/">戻る</a>

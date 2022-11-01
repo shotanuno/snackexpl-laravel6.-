@@ -24,7 +24,8 @@
             <!-- ratig_averageについては未実装 -->
             </div>
             <div class='image'>
-                <input type="file" name="image">
+                <input type="file" name="image"/>
+                <!-- imageのバリデーションは未実装 -->
             </div>
             <input type="submit" value="保存"/>
         </form>
