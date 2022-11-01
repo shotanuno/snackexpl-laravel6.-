@@ -11,9 +11,7 @@ class CommentController extends Controller
     
     public function index()
     {
-        $random = Snack::inRandomOrder()->first();
         return view('comments.index')->with([
-            'random' => $random,
             $i = new Comment(),
             'comments' => $i->getPaginateByLimit()
         ]);

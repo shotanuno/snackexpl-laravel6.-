@@ -20,6 +20,7 @@ Route::get('/snacks/{snack}/edit', 'SnackController@edit');
 Route::get('/snacks/{snack}', 'SnackController@detail');
 Route::put('/snacks/{snack}', 'SnackController@update');
 Route::post('/snacks', 'SnackController@store');
+Route::post('/snacks/{snack}', 'SnackController@add');
 Route::delete('/snacks/{snack}', 'SnackController@delete');
 
 Route::get('/comments', 'CommentController@index');
@@ -28,6 +29,7 @@ Route::get('/comments/{comment}/edit', 'CommentController@edit');
 Route::put('/comments/{comment}', 'CommentController@update');
 Route::post('/comments/{snack}', 'CommentController@store');
 Route::delete('comments/{comment}', 'CommentController@delete');
+
 });
 
 Auth::routes();
