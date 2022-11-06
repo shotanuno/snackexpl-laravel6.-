@@ -29,11 +29,13 @@ class SnackController extends Controller
     {
         $comment = Comment::where("snack_id", $snack->id)
         ->orderBy("created_at", "DESC")->limit(10)->get();
+        $rating = Comment::where("snack_id", $snack->id)->average("rating");
         $image = Image::whereImageable_id($snack->id)->where('imageable_type', 'App\Snack')->get();
         return view('snacks/detail')->with([
             'snack' => $snack,
             'comments' => $comment,
-            'images' => $image
+            'images' => $image,
+            'rating' => $rating
             ]);
     }
     
