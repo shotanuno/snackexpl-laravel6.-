@@ -34,7 +34,7 @@
                 <h2>お菓子の詳細</h2>
                 <p>{{ $snack->overview }}</p>
                 <h2>評価</h2>
-                <p class='rating_average'>{{ $snack->rating_average }}</p>    
+                <p class='rating_average'>{{ $rating }}</p>    
             </div>
         </div>
         <h3 class="comment">このお菓子への投稿　最新10件</h3>
