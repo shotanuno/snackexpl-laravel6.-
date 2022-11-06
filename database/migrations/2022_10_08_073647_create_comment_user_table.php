@@ -12,6 +12,7 @@ class CreateCommentUserTable extends Migration
             $table->integer('comment_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->primary(['comment_id', 'user_id']);
+            $table->timestamps();
         });
     }
 

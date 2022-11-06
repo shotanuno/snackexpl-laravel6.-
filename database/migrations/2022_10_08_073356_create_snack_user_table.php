@@ -12,6 +12,7 @@ class CreateSnackUserTable extends Migration
             $table->integer('snack_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->primary(['snack_id', 'user_id']);
+            $table->timestamps();
         });
     }
 
