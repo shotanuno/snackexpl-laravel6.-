@@ -11,8 +11,9 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Blog Name</h1>
+        <a href="/comments">最新の投稿一覧</a>
         <a href='/snacks/random'>Random Jump</a>
+        <h1>Blog Name</h1>
         <div class='snacks'>
             @foreach ($snacks as $snack)
                 <div class='snack'>
