@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>ブックマークしたブログ</h1>
+        <h1>ブックマークした投稿一覧</h1>
         <div class='cooments'>
             @foreach ($comments as $comment)
                 <div class='comment'>
