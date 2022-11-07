@@ -76,6 +76,14 @@ class CommentController extends Controller
         
     }
     
+    public function bookmarked()
+    {
+        $comments = auth()->user()->comments()->orderBy('created_at', 'desc')->paginate(10);
+        return view('comments.bookmarked')->with([
+            'comments' => $comments
+        ]);
+    }
+    
     public function bookmark(Request $request, Comment $comment)
     {
         $comment->users()->attach(auth()->user());

@@ -24,6 +24,7 @@ Route::post('/snacks/{snack}', 'SnackController@add');
 Route::delete('/snacks/{snack}', 'SnackController@delete');
 
 Route::get('/comments', 'CommentController@index');
+Route::get('/comments/bookmarked', 'CommentController@bookmarked');
 Route::get('/comments/{comment}', 'CommentController@detail');
 Route::get('/comments/{comment}/edit', 'CommentController@edit');
 Route::put('/comments/{comment}', 'CommentController@update');
@@ -32,6 +33,8 @@ Route::delete('comments/{comment}', 'CommentController@delete');
 
 Route::post('/comments/{comment}/bookmark', 'CommentController@bookmark');
 Route::post('/comments/{comment}/unbookmark', 'CommentController@unbookmark');
+
+
 });
 
 Auth::routes();
