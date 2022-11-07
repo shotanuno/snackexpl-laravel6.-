@@ -20,9 +20,8 @@ class SnackController extends Controller
     }
     
     public function random(){
-        return view('snacks/detail')->with([
-            'snack' => Snack::inRandomOrder()->first()
-            ]);
+        $random = Snack::inRandomOrder()->first();
+        return redirect("/snacks/" . $random->id);
     }
     
     public function detail(Snack $snack)
