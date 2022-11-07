@@ -30,6 +30,8 @@ Route::put('/comments/{comment}', 'CommentController@update');
 Route::post('/comments/{snack}', 'CommentController@store');
 Route::delete('comments/{comment}', 'CommentController@delete');
 
+Route::post('/comments/{comment}/bookmark', 'CommentController@bookmark');
+Route::post('/comments/{comment}/unbookmark', 'CommentController@unbookmark');
 });
 
 Auth::routes();
