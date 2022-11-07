@@ -21,14 +21,17 @@
             <div class='content__title'>
                 <h2>タイトル:</h2>
                 <input type='text' name='comment[title]' value="{{ $comment->title }}">
+                <p class="title__error" style="color:red">{{ $errors->first('comment.title') }}</p>
             </div>
             <div class='content__body'>
                 <h2>内容:</h2>
-                <input type='text' name='comment[body]' value="{{ $comment->body }}">
+                <textarea name='comment[body]' value="{{ $comment->body }}"></textarea>
+                <p class="body__error" style="color:red">{{ $errors->first('comment.body') }}</p>
             </div>
             <div class='content__average'>
                 <h2>評価:</h2>
-                <input type="number" name="comment[rating]" min="1" max="5"　value="{{ $comment->body }}">
+                <input type="number" name="comment[rating]" min="1" max="5"　value="{{ $comment->rating }}">
+                <p class="rating__error" style="color:red">{{ $errors->first('comment.rating') }}</p>
             </div>
             <input type="submit" value="保存">
         </form>

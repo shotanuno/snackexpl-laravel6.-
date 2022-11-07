@@ -21,10 +21,10 @@
                 <h2>詳細:</h2>
                 <textarea name="snack[overview]" placeholder="そのお菓子の詳細について記入してください"></textarea>
                 <p class="overview__error" style="color:red">{{ $errors->first('snack.overview') }}</p>
-            <!-- ratig_averageについては未実装 -->
             </div>
             <div class='image'>
                 <input type="file" name="image"/>
+                <p class="image__error" style="color:red">{{ $errors->first('image') }}</p>
                 <!-- imageのバリデーションは未実装 -->
             </div>
             <input type="submit" value="保存"/>

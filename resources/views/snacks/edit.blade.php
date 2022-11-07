@@ -21,10 +21,12 @@
             <div class='content__name'>
                 <h2>お菓子名:</h2>
                 <input type='text' name='snack[name]' value="{{ $snack->name }}">
+                <p class="name__error" style="color:red">{{ $errors->first('snack.name') }}</p>
             </div>
             <div class='content__overview'>
                 <h2>詳細:</h2>
-                <input type='text' name='snack[overview]' value="{{ $snack->overview }}">
+                <textarea name='snack[overview]' value="{{ $snack->overview }}"></textarea>
+                <p class="overview__error" style="color:red">{{ $errors->first('snack.overview') }}</p>
             </div>
             <input type="submit" value="保存">
         </form>
