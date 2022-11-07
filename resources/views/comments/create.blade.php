@@ -24,7 +24,6 @@
                 <h2>評価:</h2>
                 <input type="number" name="comment[rating]" min="1" max="5"> 
                 <p class="rating__error" style="color:red">{{ $errors->first('comment.rating') }}</p>
-            <!-- ratig_averageについては未実装 -->
             </div>
             <input type="submit" value="保存"/>
         </form>

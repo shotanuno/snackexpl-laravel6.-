@@ -25,4 +25,10 @@ class Comment extends Model
     {
         return $this->belongsTo("App\Snack");
     }
+    
+    public function users()
+    {
+        return $this->belongsToMany("App\User", "comment_user", "comment_id", "user_id");
+    }
+    
 }

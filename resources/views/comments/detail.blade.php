@@ -33,6 +33,22 @@
             @method('DELETE')
             <button type="submit", onclick="return deleteComment()">delete</button> 
         </form>
+        <div class="comment_bookmark">
+            @if ($bookmark_list->contains($comment->id))
+                <form action={{"/comments/" . $comment->id . "/unbookmark"}} method="POST" class="border-red-500">
+                    <!-- action="/comments/{ $comment->id }/unbookmark"だと上手く認識されない -->
+                    @csrf
+                    <button type="submit"><img class="w-1/2" src="{{ asset('/image/red-heart.png') }}"></button>
+                </form>
+                <span>{{ $comment->users()->count() }}</span>
+            @else
+                <form action={{"/comments/" . $comment->id . "/bookmark"}} method="POST" class="border-red-500">
+                    @csrf
+                    <button type="submit"><img class="w-1/2" src="{{ asset('/image/gray-heart.png') }}"></button>
+                </form>
+                <span>{{ $comment->users()->count() }}</span>
+            @endif
+        </div>
         <div class="footer">
             <a href="/comments">投稿一覧へ戻る</a>
         </div>

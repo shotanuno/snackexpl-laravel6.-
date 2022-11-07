@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Snack;
+use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
@@ -30,7 +31,9 @@ class CommentController extends Controller
     public function detail(Comment $comment)
     {
         return view("comments.detail")->with([
-            'comment' => $comment
+            'comment' => $comment,
+            'bookmark_list' => auth()->user()->comments()->get()
+            /* 'bookmark_list' => auth()->user()->comments() で終わらせると型としてはリレーションのままなのでget()によりコレクション型にしてデータを取得する */
         ]);
     }
     
@@ -71,6 +74,26 @@ class CommentController extends Controller
         $comment->delete();
         return redirect('/snacks/' . $comment->snack->id);
         
+    }
+    
+    public function bookmarked()
+    {
+        $comments = auth()->user()->comments()->orderBy('created_at', 'desc')->paginate(10);
+        return view('comments.bookmarked')->with([
+            'comments' => $comments
+        ]);
+    }
+    
+    public function bookmark(Request $request, Comment $comment)
+    {
+        $comment->users()->attach(auth()->user());
+        return redirect('/comments/' . $comment->id);
+    }
+    
+    public function unbookmark(Request $request, Comment $comment)
+    {
+        $comment->users()->detach(auth()->user());
+        return redirect('/comments/' . $comment->id);
     }
     
     
