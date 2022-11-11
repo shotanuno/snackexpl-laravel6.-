@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-    <h1 class="title">編集画面</h1>
-    <div class="content">
+    <h1 class="title" style='padding: 10px 0 0 30px;'>編集画面</h1>
+    <div class="content" style='padding: 20px 70px;'>
         <form action="/snacks/{{ $snack->id }}" method="POST">
             @csrf
             @method('PUT')
