@@ -13,27 +13,27 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <h1 class="title">
+        <h1 class="title" style='padding: 0 0 0 30px;'>
             {{ $comment->title }}
         </h1>
-        <h2>お菓子名：
+        <h2 style='padding: 20px 70px;'>お菓子名：
             <a href="/snacks/{{ $comment->snack_id }}">
                 {{ $comment->snack->name }}
             </a>
         </h2>
-        <div class="content">
+        <div class="content" style='padding: 0 0 0 70px;'>
             <div class="content__comment">
                 <p>{{ $comment->body }}</p>
                 <h2 class="rating">評価:{{ $comment->rating }}</h2>
             </div>
         </div>
-        <p class="edit">[<a href="/comments/{{ $comment->id }}/edit">編集</a>]</p>
-        <form action="/comments/{{ $comment->id }}" id="form_{{ $comment->id }}" method="post" style="display:inline">
+        <p class="edit" style='padding: 0 0 0 50px;'>[<a href="/comments/{{ $comment->id }}/edit">編集</a>]</p>
+        <form action="/comments/{{ $comment->id }}" id="form_{{ $comment->id }}" method="post" style="display:inline; padding: 0 0 0 50px;'">
             @csrf
             @method('DELETE')
             <button type="submit", onclick="return deleteComment()">delete</button> 
         </form>
-        <div class="comment_bookmark">
+        <div class="comment_bookmark" style='padding: 20px 0 0 50px;'>
             @if ($bookmark_list->contains($comment->id))
                 <form action={{"/comments/" . $comment->id . "/unbookmark"}} method="POST" class="border-red-500">
                     <!-- action="/comments/{ $comment->id }/unbookmark"だと上手く認識されない -->
@@ -50,7 +50,7 @@
             @endif
         </div>
         <div class="footer">
-            <a href="/comments">投稿一覧へ戻る</a>
+            <a href="/comments" style='padding: 10px 0 0 50px;'>投稿一覧へ戻る</a>
         </div>
         <script>
             function deleteComment() {
