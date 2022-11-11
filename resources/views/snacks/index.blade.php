@@ -11,12 +11,12 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <a href="/comments">最新の投稿一覧</a>
-        <a href='/snacks/random'>Random Jump</a>
-        <h1>Blog Name</h1>
+        <a href="/comments" style='padding: 0 0 0 30px;'>最新の投稿一覧</a>
+        <a href='/snacks/random' style='padding: 0 0 0 30px;'>Random Jump</a>
+        <h1 style='padding: 10px 30px;'>Blog Name</h1>
         <div class='snacks'>
             @foreach ($snacks as $snack)
-                <div class='snack'>
+                <div class='snack' style='padding: 20px 70px;'>
                     <h2 class='name'>
                         <a href="/snacks/{{ $snack->id }}">{{ $snack->name }}</a>
                     </h2>
@@ -29,10 +29,10 @@
                 </div>
             @endforeach
         </div>
-        <div class='paginate'>
+        <div class='paginate' style='padding: 0 0 0 70px;'>
             {{ $snacks->links() }}
         </div>
-        <a href='/snacks/create'>お菓子の追加</a>
+        <a href='/snacks/create' style='padding: 0 0 0 50px;'>お菓子の追加</a>
         <script>
             function deleteSnack() {
                 "use strict"
