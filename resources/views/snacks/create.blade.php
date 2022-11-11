@@ -9,8 +9,8 @@
         <title>SnackMenu</title>
     </head>
     <body>
-        <h1>Snack Name</h1>
-        <form action="/snacks" method="POST" enctype="multipart/form-data">
+        <h1 style='padding: 10px 0 0 30px;'>Snack Name</h1>
+        <form action="/snacks" method="POST" enctype="multipart/form-data" style='padding: 20px 70px;'>
             @csrf
             <div class="name">
                 <h2>お菓子名:</h2>
@@ -29,7 +29,7 @@
             </div>
             <input type="submit" value="保存"/>
         </form>
-        <div class="back">[<a href="/">back</a>]</div>
+        <div class="back" style='padding: 0 0 0 50px;'>[<a href="/">back</a>]</div>
     </body>
 </html>
 
