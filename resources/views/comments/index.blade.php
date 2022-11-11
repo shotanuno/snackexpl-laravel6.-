@@ -12,8 +12,8 @@
     </head>
     <body>
         <a href="/comments/bookmarked">ブックマーク一覧</a>
-        <h1>Blog name</h1>
-        <div class='cooments'>
+        <h1 style='padding: 10px 30px;'>Blog name</h1>
+        <div class='cooments' style='padding: 20px 70px;'>
             @foreach ($comments as $comment)
                 <div class='comment'>
                     <h2 class='title'>
