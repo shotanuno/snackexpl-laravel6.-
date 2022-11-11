@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-    <h1 class="title">編集画面</h1>
-    <div class="content">
+    <h1 class="title" style='padding: 10px 0 0 30px;'>編集画面</h1>
+    <div class="content" style='padding: 20px 70px;'>
         <form action="/comments/{{ $comment->id }}" method="POST">
             @csrf
             @method('PUT')
@@ -35,7 +35,7 @@
             </div>
             <input type="submit" value="保存">
         </form>
-        <a href="/comments/{{ $comment->id }}">[キャンセル]</a>
+        <a href="/comments/{{ $comment->id }}" >[キャンセル]</a>
     </div>
 </body>
 
