@@ -9,8 +9,8 @@
         <title>SnackMenu</title>
     </head>
     <body>
-        <h1 class="snack_name">{{ $snack->name }}</h1>
-        <form action="/comments/{{ $snack->id }}" method="POST">
+        <h1 class="snack_name" style='padding: 10px 0 0 30px;'>{{ $snack->name }}</h1>
+        <form action="/comments/{{ $snack->id }}" method="POST" style='padding: 20px 70px;'>
             @csrf
             <div class="title">
                 <h2>タイトル:</h2>
@@ -27,7 +27,7 @@
             </div>
             <input type="submit" value="保存"/>
         </form>
-        <div class="back">[<a href="/snacks/{{ $snack->id }}">back</a>]</div>
+        <div class="back">[<a href="/snacks/{{ $snack->id }}" style='padding: 0 0 0 50px;'>back</a>]</div>
     </body>
 </html>
 

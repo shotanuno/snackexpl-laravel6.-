@@ -31,4 +31,8 @@ class Snack extends Model
         return $this->morphMany("App\Image", 'imageable');
     }
     
+    public function users()
+    {
+        return $this->belongsToMany("App\User", "snack_user", "snack_id", "user_id");
+    }
 }
